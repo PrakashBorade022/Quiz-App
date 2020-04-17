@@ -1,0 +1,45 @@
+<!-- {% for q in questions%}
+{{  q}}
+{%endfor%} -->
+
+<div class="instructions">
+     <h2>Instructions</h2>
+    <li>
+        all questions all compulsory
+    </li>
+</div>
+<br>
+<hr>
+
+{% for i in questions %}
+<h3>{{i.question}}</h3>
+<input type="radio" id="one" value="{{i.ans1}}">
+<label>{{i.option1}}</label> <br>
+<input type="radio" id="one" value="{{i.ans2}}">
+<label>{{i.option2}}</label> <br>
+<input type="radio" id="one" value="{{i.ans3}}">
+<label>{{i.option3}}</label> <br>
+<input type="radio" id="one" value="{{i.ans4}}">
+<label>{{i.option4}}</label> <br>
+<hr>
+<br>
+
+{% endfor %}
+
+<div class="paginetor">
+    {% if questions.has_previous %}
+      <li><a href="?page={{ questions.previous_page_number }}">Back</a></li>
+    {% endif %}
+    <!-- {% for pg in questions.paginator.page_range %}
+    {% if questions.number == pg%}
+      <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+      {% else %}
+        <li><a href="?page={{pg}}">{{ pg }}</a></li>
+    {% endif %}
+    {% endfor %} -->
+    {%  if questions.has_next %}
+        <li><a href="?page={{ questions.next_page_number }}">Next</a></li>
+    {% else %}
+      <li><a href="#">Submit</a></li>    
+    {% endif %} 
+</div>
